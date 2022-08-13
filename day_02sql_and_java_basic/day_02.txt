@@ -1,0 +1,64 @@
+create table employee(f_name varchar(50), l_name varchar(50), date_of_join date,
+					  base_salary int, incentive float, net_salary float);
+					  
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('anna','pandiyan','2017-03-21',9000,0.4);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('ajith','kumar','2018-08-15',8500,0.35);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('umapathi',null,'2015-05-08',18200,0.58);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('anbu',null,'2022-03-05',8000,0.39);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('arun','vel','2022-06-07',8000,0.36);
+
+update employee set net_salary =(base_salary+(base_salary*incentive)+base_salary);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('arul','selvem','2022-07-07',8000,0.39);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('anu','priya','2022-01-07',8000,0.89);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('sri','bhanu','2022-08-07',8000,0.57);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('nandhu',null,'2022-07-07',8000,0.79);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('ram',null,'2022-08-08',8000,0.91);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('paneer','selvem','2020-07-07',15000,0.39);
+
+insert into employee(f_name, l_name, date_of_join, base_salary,incentive) 
+values('raja',null,'2016-07-07',18000,0.39);
+
+--task 3
+
+select f_name, date_of_join
+from employee 
+where date_of_join between (now()::date - interval'6 day')::date and now()::date;
+
+--task 1
+
+select f_name, extract(month from date_of_join) as  month_of_join from employee;
+
+--task 2
+
+select f_name, date_of_join 
+from employee 
+where date_of_join between (now()::date - interval'3 month')::date and now()::date;
+
+--task 4
+
+select f_name,date_of_join
+from employee
+where (extract(year from date_of_join )::integer % 4 =0) = true;
+
+select*from employee;
